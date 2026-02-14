@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::view-transition-group(*) {
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+}
+
+body {
+  background: #faf9f7;
+  font-family: var(--font-body), 'DM Sans', sans-serif;
+  color: #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
