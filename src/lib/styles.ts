@@ -17,7 +17,7 @@ export const fonts = {
 };
 
 export const Container = styled.div`
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 0 1.5rem;
 `;
@@ -40,8 +40,8 @@ export const Nav = styled.nav`
 
 export const SiteTitle = styled.a`
   font-family: ${fonts.heading};
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: ${colors.text} !important;
   margin-right: auto;
 `;
@@ -68,6 +68,10 @@ export const PostDate = styled.time`
 export const PostListItem = styled.article`
   padding: 1.5rem 0;
   border-bottom: 1px solid ${colors.border};
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   &:first-child {
     padding-top: 0;
