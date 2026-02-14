@@ -1,7 +1,7 @@
 import { ViewTransition } from 'react';
 import Link from 'next/link';
 import { getAllPosts, formatDate } from '@/lib/posts';
-import { Title, PostDate, PostListItem } from '@/lib/styles';
+import { Title, PostDate, PostListItem, PostList } from '@/lib/styles';
 
 export default function HomePage() {
   const posts = getAllPosts();
@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div>
       <Title>Posts</Title>
-      <div>
+      <PostList>
         {posts.map((post) => (
           <PostListItem key={post.slug}>
             <Link href={`/posts/${post.slug}`}>
@@ -24,7 +24,7 @@ export default function HomePage() {
             No posts yet.
           </p>
         )}
-      </div>
+      </PostList>
     </div>
   );
 }

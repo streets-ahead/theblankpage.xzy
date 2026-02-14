@@ -31,7 +31,6 @@ export const Nav = styled.nav`
   a {
     color: ${colors.textMuted};
     text-decoration: none;
-    letter-spacing: 0.02em;
 
     &:hover {
       color: ${colors.text};
@@ -41,8 +40,8 @@ export const Nav = styled.nav`
 
 export const SiteTitle = styled.a`
   font-family: ${fonts.heading};
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 500;
   color: ${colors.text} !important;
   margin-right: auto;
 `;
@@ -50,11 +49,15 @@ export const SiteTitle = styled.a`
 export const Title = styled.h1`
   font-family: ${fonts.heading};
   font-size: 4rem;
-  font-weight: 600;
+  font-weight: 700;
   color: ${colors.accent};
-  margin: 0 0 0.5rem;
+  margin: 0 0 0;
   line-height: 1.2;
   letter-spacing: -0.015em;
+`;
+
+export const PostList = styled.main`
+  margin-top: 2.2rem; 
 `;
 
 export const PostDate = styled.time`
@@ -77,18 +80,18 @@ export const PostListItem = styled.article`
 
   h2 {
     font-family: ${fonts.heading};
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 0 0 0.3rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 0rem;
     color: ${colors.text};
     line-height: 1.25;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.008em;
   }
 
   p {
-    margin: 0.4rem 0 0;
+    margin: 0.6rem 0 0;
     color: ${colors.textMuted};
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.45;
   }
 `;

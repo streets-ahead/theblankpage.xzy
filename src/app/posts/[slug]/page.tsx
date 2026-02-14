@@ -22,9 +22,7 @@ export default async function PostPage({
   return (
     <article>
       <PostHeader>
-        <ViewTransition name={`post-title-${slug}`}>
-          <Title>{meta.title}</Title>
-        </ViewTransition>
+        <Title>{meta.title}</Title>
         <PostDate>{formatDate(meta.date)}</PostDate>
         {meta.author && (
           <>

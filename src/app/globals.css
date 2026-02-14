@@ -38,6 +38,7 @@
 .nav-link {
   font-family: var(--font-body), 'DM Sans', sans-serif;
   font-size: 1.0rem;
+  letter-spacing: 0.02em;
 }
 
 body {
