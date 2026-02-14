@@ -1,12 +1,14 @@
 import { styled } from '@linaria/react';
 
 export const colors = {
-  bg: '#faf9f7',
-  text: '#2d2d2d',
-  textMuted: '#6b6b6b',
-  border: '#e8e5e1',
-  accent: '#1a1a1a',
-  link: '#3d3d3d',
+  bg: 'var(--color-bg)',
+  text: 'var(--color-text)',
+  textMuted: 'var(--color-text-muted)',
+  border: 'var(--color-border)',
+  accent: 'var(--color-accent)',
+  link: 'var(--color-link)',
+  codeBg: 'var(--color-code-bg)',
+  codeText: 'var(--color-code-text)',
 };
 
 export const fonts = {
@@ -29,7 +31,6 @@ export const Nav = styled.nav`
   a {
     color: ${colors.textMuted};
     text-decoration: none;
-    font-size: 0.9rem;
     letter-spacing: 0.02em;
 
     &:hover {
@@ -40,7 +41,7 @@ export const Nav = styled.nav`
 
 export const SiteTitle = styled.a`
   font-family: ${fonts.heading};
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: ${colors.text} !important;
   margin-right: auto;
@@ -48,15 +49,16 @@ export const SiteTitle = styled.a`
 
 export const Title = styled.h1`
   font-family: ${fonts.heading};
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 600;
-  color: ${colors.text};
+  color: ${colors.accent};
   margin: 0 0 0.5rem;
-  line-height: 1.3;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
 `;
 
 export const PostDate = styled.time`
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: ${colors.textMuted};
 `;
 
@@ -79,44 +81,47 @@ export const PostListItem = styled.article`
     font-weight: 600;
     margin: 0 0 0.3rem;
     color: ${colors.text};
-    line-height: 1.3;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   p {
     margin: 0.4rem 0 0;
     color: ${colors.textMuted};
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.45;
   }
 `;
 
 export const PostHeader = styled.header`
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid ${colors.border};
+  margin-bottom: 2.2rem;
+  padding-bottom: 0rem;
 `;
 
 export const PostAuthor = styled.span`
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: ${colors.textMuted};
 `;
 
 export const PostContent = styled.div`
-  line-height: 1.7;
+  line-height: 1.5;
   color: ${colors.text};
 
   h2 {
     font-family: ${fonts.heading};
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 2rem 0 0.75rem;
+    margin: 2.5rem 0 0.75rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   h3 {
     font-family: ${fonts.heading};
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin: 1.75rem 0 0.5rem;
+    margin: 2rem 0 0.5rem;
+    line-height: 1.3;
   }
 
   p {
@@ -126,19 +131,26 @@ export const PostContent = styled.div`
   a {
     color: ${colors.text};
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    text-decoration-color: ${colors.border};
+    transition: text-decoration-color 0.15s;
+
+    &:hover {
+      text-decoration-color: ${colors.text};
+    }
   }
 
   code {
-    font-size: 0.9em;
+    font-size: 0.85em;
     background: ${colors.border};
     padding: 0.15em 0.35em;
     border-radius: 3px;
   }
 
   pre {
-    background: ${colors.accent};
-    color: #f0f0f0;
+    background: ${colors.codeBg};
+    color: ${colors.codeText};
     padding: 1.25rem;
     border-radius: 6px;
     overflow-x: auto;
@@ -147,15 +159,16 @@ export const PostContent = styled.div`
     code {
       background: none;
       padding: 0;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
   }
 
   blockquote {
-    border-left: 3px solid ${colors.border};
+    border-left: 2px solid ${colors.textMuted};
     margin: 0 0 1.25rem;
-    padding: 0.5rem 0 0.5rem 1.25rem;
+    padding: 0 0 0 1.25rem;
     color: ${colors.textMuted};
+    font-style: italic;
   }
 
   ul, ol {
@@ -164,7 +177,12 @@ export const PostContent = styled.div`
   }
 
   li {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.3rem;
+  }
+
+  li > ul, li > ol {
+    margin-top: 0.3rem;
+    margin-bottom: 0;
   }
 
   img {
@@ -175,12 +193,12 @@ export const PostContent = styled.div`
   hr {
     border: none;
     border-top: 1px solid ${colors.border};
-    margin: 2rem 0;
+    margin: 2.5rem 0;
   }
 `;
 
 export const PageContent = styled.div`
-  line-height: 1.7;
+  line-height: 1.5;
   color: ${colors.text};
   padding: 1rem 0 4rem;
 
@@ -188,7 +206,9 @@ export const PageContent = styled.div`
     font-family: ${fonts.heading};
     font-size: 1.4rem;
     font-weight: 600;
-    margin: 1.5rem 0 0.75rem;
+    margin: 2rem 0 0.75rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   p {
@@ -198,6 +218,13 @@ export const PageContent = styled.div`
   a {
     color: ${colors.text};
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    text-decoration-color: ${colors.border};
+    transition: text-decoration-color 0.15s;
+
+    &:hover {
+      text-decoration-color: ${colors.text};
+    }
   }
 `;

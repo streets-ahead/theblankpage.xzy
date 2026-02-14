@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: 'Blankpage',
+  title: 'blankpage.xyz',
   description: 'A minimal blog',
 };
 
@@ -31,11 +31,11 @@ export default function RootLayout({
       <body>
         <Container>
           <Nav>
-            <SiteTitle as={Link} href="/">
-              Blankpage
+            <SiteTitle as={Link} href="/" className={zillaSlab.className}>
+              blankpage.xyz
             </SiteTitle>
-            <Link href="/">Posts</Link>
-            <Link href="/about">About</Link>
+            <Link href="/" className="nav-link">Posts</Link>
+            <Link href="/about" className="nav-link">About</Link>
           </Nav>
           <main>{children}</main>
         </Container>
