@@ -25,7 +25,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #1a1a1a;
-    --color-text: #e8e5e1;
+    --color-text: #d6d6d6;
     --color-text-muted: #9a9a9a;
     --color-border: #333;
     --color-accent: rgb(194, 127, 59);
