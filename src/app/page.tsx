@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react';
+import { ViewTransition } from 'react';
 import Link from 'next/link';
 import { getAllPosts, formatDate } from '@/lib/posts';
 import { Title, PostDate, colors, fonts } from '@/lib/styles';
@@ -52,7 +53,9 @@ export default function HomePage() {
         {posts.map((post) => (
           <PostListItem key={post.slug}>
             <Link href={`/posts/${post.slug}`}>
-              <h2>{post.title}</h2>
+              <ViewTransition name={`post-title-${post.slug}`}>
+                <h2>{post.title}</h2>
+              </ViewTransition>
               <PostDate>{formatDate(post.date)}</PostDate>
               {post.description && <p>{post.description}</p>}
             </Link>

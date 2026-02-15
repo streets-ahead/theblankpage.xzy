@@ -14,6 +14,10 @@ const PostAuthor = styled.span`
   color: ${colors.textMuted};
 `;
 
+const FadeIn = styled.div`
+  animation: fade-in 0.4s ease both 0.25s;
+`;
+
 const PostContent = styled.div`
   line-height: 1.5;
   padding-bottom: 5rem;
@@ -129,16 +133,22 @@ export default async function PostPage({
   return (
     <article>
       <PostHeader>
-        <Title>{meta.title}</Title>
-        <PostDate>{formatDate(meta.date)}</PostDate>
-        {meta.author && (
-          <>
-            {' · '}
-            <PostAuthor>{meta.author}</PostAuthor>
-          </>
-        )}
+        <ViewTransition name={`post-title-${slug}`}>
+          <Title>{meta.title}</Title>
+        </ViewTransition>
+        <FadeIn>
+          <PostDate>{formatDate(meta.date)}</PostDate>
+          {meta.author && (
+            <>
+              {' · '}
+              <PostAuthor>{meta.author}</PostAuthor>
+            </>
+          )}
+        </FadeIn>
       </PostHeader>
-      <PostContent>{mdxContent}</PostContent>
+      <FadeIn>
+        <PostContent>{mdxContent}</PostContent>
+      </FadeIn>
     </article>
   );
 }
