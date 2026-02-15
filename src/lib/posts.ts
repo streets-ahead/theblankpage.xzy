@@ -20,6 +20,7 @@ export interface PostMeta {
   published: boolean;
   author: string;
   description: string;
+  tags: string[];
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -39,6 +40,7 @@ export function getAllPosts(): PostMeta[] {
         published: data.published ?? false,
         author: data.author ?? '',
         description: data.description ?? '',
+        tags: data.tags ?? [],
       };
     })
     .filter((post) => post.published)
@@ -60,6 +62,7 @@ export function getPostBySlug(slug: string) {
       published: data.published ?? false,
       author: data.author ?? '',
       description: data.description ?? '',
+      tags: data.tags ?? [],
     } as PostMeta,
     content,
   };

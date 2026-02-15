@@ -14,8 +14,25 @@ const PostAuthor = styled.span`
   color: ${colors.textMuted};
 `;
 
+const Tag = styled.span`
+  font-size: 0.8rem;
+  color: ${colors.textMuted};
+  border: 1px solid ${colors.border};
+  padding: 0.15em 0.5em;
+  border-radius: 3px;
+`;
+
+const Tags = styled.div`
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid ${colors.border};
+`;
+
 const FadeIn = styled.div`
-  animation: fade-in 0.4s ease both 0.25s;
+  animation: fade-in 0.4s ease both 0.20s;
 `;
 
 const PostContent = styled.div`
@@ -88,7 +105,8 @@ const PostContent = styled.div`
     font-style: italic;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin: 0 0 1.25rem;
     padding-left: 1.5rem;
   }
@@ -97,7 +115,8 @@ const PostContent = styled.div`
     margin-bottom: 0.3rem;
   }
 
-  li > ul, li > ol {
+  li > ul,
+  li > ol {
     margin-top: 0.3rem;
     margin-bottom: 0;
   }
@@ -147,7 +166,16 @@ export default async function PostPage({
         </FadeIn>
       </PostHeader>
       <FadeIn>
-        <PostContent>{mdxContent}</PostContent>
+        <PostContent>
+          {mdxContent}
+          {/* {meta.tags.length > 0 && (
+            <Tags>
+              {meta.tags.map((tag) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
+            </Tags>
+          )} */}
+        </PostContent>
       </FadeIn>
     </article>
   );

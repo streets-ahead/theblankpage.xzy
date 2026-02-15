@@ -43,6 +43,21 @@ const PostListItem = styled.article`
   }
 `;
 
+const Tags = styled.div`
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+`;
+
+const Tag = styled.span`
+  font-size: 0.8rem;
+  color: ${colors.textMuted};
+  border: 1px solid ${colors.border};
+  padding: 0.15em 0.5em;
+  border-radius: 3px;
+`;
+
 export default function HomePage() {
   const posts = getAllPosts();
 
@@ -58,6 +73,13 @@ export default function HomePage() {
               </ViewTransition>
               <PostDate>{formatDate(post.date)}</PostDate>
               {post.description && <p>{post.description}</p>}
+              {post.tags.length > 0 && (
+                <Tags>
+                  {post.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </Tags>
+              )}
             </Link>
           </PostListItem>
         ))}
