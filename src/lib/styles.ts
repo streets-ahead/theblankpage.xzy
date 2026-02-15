@@ -24,6 +24,10 @@ export const Title = styled.h1`
   margin: 0 0 0;
   line-height: 1.2;
   letter-spacing: -0.015em;
+
+  @media (max-width: 480px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const PostDate = styled.time`
